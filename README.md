@@ -22,8 +22,8 @@ test subjects as HU `int16` NIfTI on the NCCT grid.
 * **Finite-time conditioned problem and unobserved variables:** Some vessels that
   enhance in a normal CTA are occluded/dark here, and exact enhancement depends on bolus
   timing/collaterals invisible on NCCT. 
-  Task is "impossible" because NCCT doesn't reveal occlusion, Model is expected to do well in
-  the overall vessel tree (learning to "colour" vessels is well-posed), it will do badly on occlusions
+  Task is "impossible" because NCCT doesn't reveal occlusion. Model is expected to do well in
+  the overall vessel tree (learning to "colour" vessels is better posed), it will do badly on occlusions
   (there is a vessel but no blood flow).
 
 ## Setup
@@ -79,8 +79,8 @@ preds/      final 15 predictions
 | Residual target `CTA−NCCT` | Identity for free; capacity focuses on vascular contrast |
 | Native anisotropic spacing, anisotropic patches | Real data is ~0.2 mm in-plane vs ~4 mm through-plane; isotropic resampling would distort |
 | Vessel-weighted L1 norm | Sharper vessels: avoids mean-regression blur. Background is a large part of the data, but less relevant |
-| Brain mask | The ISLES'24 winners (Ren et al., 2505.18424) credit SynthStrip + windowing; brain mask weights the loss, restricts synthesis to the brain, and gives clean brain/vessel metrics. In this case, rough mask insted of SynthStrip |
-| Multi-window NCCT input | Inspired by the winners' per-modality clinical-windowing |
+| Brain mask | The ISLES'24 winners (Ren et al., arXiv 2505.18424) credit SynthStrip + windowing; brain mask weights the loss, restricts synthesis to the brain, and gives clean brain/vessel metrics. In this case, rough mask insted of SynthStrip |
+| Multi-window NCCT input | Inspired by the winners' per-modality clinical-windowing, adding more information as input channels for the model. |
 | Residual added back to true raw NCCT | Outside the synthesized brain region the output is exactly the original HU (air/bone/skull preserved), not window-clipped |
 
 ## Evaluation and results
