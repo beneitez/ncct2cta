@@ -1,0 +1,22 @@
+name: aipek-ncct2cta
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - numpy>=1.24
+  - scipy>=1.10
+  - scikit-image>=0.22
+  - matplotlib>=3.7
+  - pandas>=2.0
+  - tqdm>=4.66
+  - pyyaml>=6.0
+  - nibabel>=5.2
+  - pip:
+      # Install the torch build matching your platform (MPS locally / CUDA on cloud).
+      - torch>=2.2
+      - torchvision>=0.17
+      - monai>=1.3
+      - einops>=0.7
+      - pytorch-msssim>=1.0
+      - lpips>=0.1.4

@@ -1,0 +1,18 @@
+# Tiny end-to-end smoke test (3D U-Net) — proves the pipeline + output format quickly.
+# Run:  python -m src.train --config configs/smoke_local.yaml
+arch: unet3d
+patch_size: [96, 96, 16]   # small anisotropic patch for a fast local check
+samples_per_volume: 2
+batch_size: 1
+epochs: 2
+lr: 2.0e-4
+w_vessel: 20.0
+lambda_ssim: 0.0
+windows: [[-100, 600], [0, 80]]   # multi-window input (vessel-preserving + brain)
+brain_method: morph        # local: skip SynthStrip, use morphological brain extraction
+cache: true
+val_interval: 1
+max_val_subjects: 1
+max_train_subjects: 3      # only a few subjects, just to exercise the code paths
+num_workers: 0
+seed: 1337

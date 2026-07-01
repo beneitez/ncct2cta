@@ -1,0 +1,20 @@
+# residual 3D U-Net, vessel-weighted L1. Train on a CUDA GPU.
+# Run:  python -m src.train --config configs/unet3d_cloud.yaml
+arch: unet3d            # or segresnet3d
+patch_size: [192, 192, 32]   # anisotropic: high-res in-plane, fewer slices through-plane
+windows: [[-100, 600], [0, 80]]   # multi-window NCCT input (vessel-preserving + brain)
+brain_method: auto      # SynthStrip if available on the box (docker pull freesurfer/synthstrip), else morph
+samples_per_volume: 8
+batch_size: 4
+epochs: 300
+lr: 2.0e-4
+weight_decay: 1.0e-5
+w_vessel: 20.0
+lambda_ssim: 0.0
+cache: true
+val_interval: 10
+max_val_subjects: 12
+num_workers: 0
+seed: 1337
+overlap: 0.5
+sw_batch: 2
