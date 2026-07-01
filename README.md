@@ -89,6 +89,18 @@ regions, for every model alongside to the identity and HU-remap baselines. A mod
 "works" if it beats identity inside vessels while not degrading elsewhere. Figures show
 representative slices, error maps, and axial MIPs. Failure-case is expected on occluded territories.
 
+Metrics averaged over all test subjects (mean ± std). Lower is better for MAE/RMSE; higher is better for PSNR/SSIM.
+
+| Method    | MAE (whole)     | MAE (brain)     | MAE (vessel)      | RMSE (vessel)     | PSNR (brain)    | SSIM            |
+|-----------|-----------------|-----------------|-------------------|-------------------|-----------------|-----------------|
+| identity  | 51.44 ± 31.53   | 25.28 ± 12.01   | 179.64 ± 31.41    | 196.29 ± 48.06    | 26.63 ± 1.89    | 0.875 ± 0.039   |
+| hu_remap  | 54.68 ± 28.18   | 20.86 ± 11.35   | 177.93 ± 29.69    | 194.75 ± 47.25    | 27.50 ± 1.87    | 0.870 ± 0.036   |
+| **unet**  | **50.28 ± 31.26** | **18.47 ± 11.33** | **89.43 ± 36.09** | **115.97 ± 55.85** | **28.20 ± 1.86** | 0.873 ± 0.039   |
+
+**Baselines:** `identity` copies the input NCCT unchanged; `hu_remap` applies a fixed HU intensity remap.
+
+The **U-Net** gives the best whole-image and brain MAE, the highest brain PSNR, and roughly halves vessel error (MAE and RMSE) versus both baselines. Largest gains are in the vessel region, guided by the loss. SSIM is essentially tied across all three methods.
+
 ## Example figures (sub-stroke0001)
 
 ![Axial panel: NCCT, CTA truth, CTA pred, error](figures/panel_0001.png)
