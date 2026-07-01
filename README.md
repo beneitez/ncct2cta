@@ -16,6 +16,7 @@ test subjects as HU `int16` NIfTI on the NCCT grid.
 * **Set baselines: identity copy is the bar to beat.** It scores well on whole-volume metrics,
   so we report every metric **whole / brain / vessel** and always compare against the
   identity (and a global HU-remap) baseline.
+* **Choice of model:** A U-net is the chosen architecture for the task. In this case we are using a MONAI vainilla U-net.
 * **Loss matters:** MSE regresses to the mean and blurs vessels, so
   we use a **vessel-weighted L1** on the residual (possible extension: structural SSIM term,
   adversarial term, or even learnt similarity, cf. LSIM).
