@@ -93,9 +93,9 @@ representative slices, error maps, and axial MIPs. Failure-case is expected on o
 
 ![Axial panel: NCCT, CTA truth, CTA pred, error](figures/panel_0001.png)
 
-*Representative axial slices — NCCT input, ground-truth CTA, predicted CTA, and per-slice absolute error (restricted to the brain).*
+*Representative axial slices: NCCT input, ground-truth CTA, predicted CTA, and per-slice absolute error (restricted to the brain).*
 
 ![Brain-masked axial MIP: truth vs prediction](figures/mip_0001.png)
 
-*Brain-masked axial maximum-intensity projection — ground truth (left) vs prediction (right).*
+*Brain-masked axial maximum-intensity projection: ground truth (left) vs prediction (right).*
 
