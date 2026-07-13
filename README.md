@@ -1,4 +1,4 @@
-# NCCT → CTA synthesis (Aipek technical task, ISLES'24 data)
+# NCCT → CTA synthesis (ISLES'24 data)
 
 ![Ground-truth vs predicted CTA — rotating brain-masked vessel MIP (sub-stroke0001)](figures3d/rotate_0001_compare.gif)
 
